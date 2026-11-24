@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: demo
+  ai:
+    openai:
+      api-key: ${OPEN_AI_KEY}
+      chat:
+        options:
+          model: gpt-6-luna
+          temperature: 0.3
+          max_completion_tokens: 300
+          n: 1
+          frequency-penalty: 0.0
+
+server:
+  port: 8081
