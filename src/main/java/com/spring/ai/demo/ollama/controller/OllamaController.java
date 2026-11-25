@@ -19,7 +19,7 @@ public class OllamaController {
     @GetMapping("/chatWithOllama")
     public ResponseEntity<String> chatWithOllama
             (@RequestParam(value = "query")String query){
-        String response = chatClient.prompt(query).call().content();
+        var response = chatClient.prompt(query).call().content();
         return ResponseEntity.ok(response);
     }
 
