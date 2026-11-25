@@ -2,15 +2,21 @@ spring:
   application:
     name: demo
   ai:
-    openai:
-      api-key: ${OPEN_AI_KEY}
+#    openai:
+#      api-key: ${OPEN_AI_KEY}
+#      chat:
+#        options:
+#          model: gpt-6-luna
+#          temperature: 0.3
+#          max_completion_tokens: 300
+#          n: 1
+#          frequency-penalty: 0.0
+    ollama:
+      base-url: http://localhost:11434
       chat:
         options:
-          model: gpt-6-luna
+          model: codellama:latest
           temperature: 0.3
-          max_completion_tokens: 300
-          n: 1
-          frequency-penalty: 0.0
 
 server:
   port: 8081
