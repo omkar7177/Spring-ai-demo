@@ -1,4 +1,7 @@
 package com.spring.ai.demo.ollama.service;
 
-public class OllamaService {
+import com.spring.ai.demo.entity.Bio;
+
+public interface OllamaService {
+    Bio getChat(String prompt);
 }

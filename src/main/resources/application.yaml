@@ -2,17 +2,16 @@ spring:
   application:
     name: demo
   ai:
+    chat:
+      client:
+        enabled: false
     openai:
       api-key: ${OPEN_AI_KEY}
       chat:
-        client:
-          enabled: false
         options:
           model: gpt-6-luna
-#          temperature: 0.3
-          max_completion_tokens: 300
-          n: 1
-          frequency-penalty: 0.0
+          max-completion-tokens: 4000
+          reasoning-effort: low
     ollama:
       base-url: http://localhost:11434
       chat:

@@ -1,5 +1,6 @@
 package com.spring.ai.demo.controller;
 
+import com.spring.ai.demo.entity.Bio;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.ollama.OllamaChatModel;
 import org.springframework.ai.openai.OpenAiChatModel;
@@ -24,10 +25,10 @@ public class ChatController {
     }
 
     @GetMapping("/chat")
-    public ResponseEntity<String> chat(
+    public ResponseEntity<Bio> chat(
             @RequestParam String query){
-        System.out.println("Using Ollama chat cleint...");
-        var result = this.ollamaChatClient.prompt(query).call().content();
+        System.out.println("Using Open AI chat client...");
+        var result = this.openAiChatClient.prompt(query).call().entity(Bio.class);
         return ResponseEntity.ok(result);
     }
 }
