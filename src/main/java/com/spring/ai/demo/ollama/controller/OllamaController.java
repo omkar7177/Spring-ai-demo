@@ -1,6 +1,8 @@
 package com.spring.ai.demo.ollama.controller;
 
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,12 +15,14 @@ public class OllamaController {
 
     private ChatClient chatClient;
 
-    public OllamaController(ChatClient.Builder builder){
-        this.chatClient=builder.build();
+    public OllamaController(@Qualifier("ollamaClient") ChatClient chatClient) {
+        this.chatClient = chatClient;
     }
+
     @GetMapping("/chatWithOllama")
     public ResponseEntity<String> chatWithOllama
             (@RequestParam(value = "query")String query){
+        System.out.println("Ollama client called from OllamaController class..");
         var response = chatClient.prompt(query).call().content();
         return ResponseEntity.ok(response);
     }
