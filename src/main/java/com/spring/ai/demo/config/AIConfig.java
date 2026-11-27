@@ -26,7 +26,7 @@ public class AIConfig {
                 .defaultOptions(OpenAiChatOptions.builder()
                         .model("gpt-4o-mini")
                         .temperature(0.3)
-                        .maxTokens(1000))
+                        .maxTokens(100))
                 .build();
     }
 

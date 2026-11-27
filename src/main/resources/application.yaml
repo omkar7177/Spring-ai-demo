@@ -10,7 +10,7 @@ spring:
       chat:
         options:
           model: gpt-6-luna
-          max-completion-tokens: 4000
+          max-completion-tokens: 200
           reasoning-effort: low
     ollama:
       base-url: http://localhost:11434
